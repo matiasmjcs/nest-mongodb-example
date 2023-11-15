@@ -9,7 +9,7 @@ export class ApplicationService {
   constructor(@InjectModel(App.name) private appModel: Model<App>) {}
 
   async getApplications(): Promise<App[]> {
-    return this.appModel.find().exec();
+    return this.appModel.find();
   }
 
   async createAppication(createAppDto: CreateAppDto): Promise<App> {
