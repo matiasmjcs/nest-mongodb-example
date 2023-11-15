@@ -8,9 +8,9 @@ export type AppDocument = HydratedDocument<App>;
   versionKey: false,
 })
 export class App {
-  @Prop()
+  @Prop({ required: true })
   name: string;
-  @Prop()
+  @Prop({ required: true })
   description: string;
 }
 

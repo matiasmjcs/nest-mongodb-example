@@ -4,4 +4,7 @@ export class CreateAppDto {
   @IsString()
   @IsNotEmpty()
   name: string;
+  @IsString()
+  @IsNotEmpty()
+  description: string;
 }

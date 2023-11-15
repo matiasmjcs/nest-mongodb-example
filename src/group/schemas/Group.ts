@@ -9,9 +9,9 @@ export type GroupDocument = HydratedDocument<Group>;
   versionKey: false,
 })
 export class Group {
-  @Prop()
+  @Prop({ required: true })
   name: string;
-  @Prop()
+  @Prop({ required: true })
   description: string;
   @Prop({ type: [mongoose.Types.ObjectId], ref: 'App' })
   applications: App[];

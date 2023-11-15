@@ -24,8 +24,8 @@ export class GroupController {
   }
 
   @Post('')
-  createGroup(@Body() createGroupDto: CreateGroupDto) {
-    return this.groupService.createGroup(createGroupDto);
+  async createGroup(@Body() createGroupDto: CreateGroupDto) {
+    return await this.groupService.createGroup(createGroupDto);
   }
 
   @Patch(':id')

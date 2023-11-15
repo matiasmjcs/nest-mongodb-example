@@ -18,8 +18,22 @@ export class GroupService {
   }
 
   async createGroup(createGroupDto: CreateGroupDto): Promise<Group> {
-    const groupCreated = new this.groupModel(createGroupDto);
-    return await groupCreated.save();
+    try {
+      if (!createGroupDto.name) {
+        throw new Error('name is undefined');
+      }
+      if (!createGroupDto.description) {
+        throw new Error('name is undefined');
+      }
+      const groupCreated = new this.groupModel({
+        name: createGroupDto.name,
+        description: createGroupDto.description,
+        applications: [],
+      });
+      return await groupCreated.save();
+    } catch (error) {
+      throw error;
+    }
   }
 
   async updateGroupById(
